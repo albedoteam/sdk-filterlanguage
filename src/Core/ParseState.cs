@@ -1,0 +1,26 @@
+﻿namespace AlbedoTeam.Sdk.FilterLanguage.Core
+{
+    using System.Collections.Generic;
+    using System.Linq.Expressions;
+
+    /// <summary>
+    ///     Represents the current state of the Parsing
+    /// </summary>
+    public class ParseState
+    {
+        /// <summary>
+        ///     Gets the parameters that can be used during the parsing
+        /// </summary>
+        public List<ParameterExpression> Parameters { get; } = new List<ParameterExpression>();
+
+        /// <summary>
+        ///     Gets the current stack of operands
+        /// </summary>
+        public Stack<Operand> Operands { get; } = new Stack<Operand>();
+
+        /// <summary>
+        ///     Gets the current stack of operators
+        /// </summary>
+        public Stack<Operator> Operators { get; } = new Stack<Operator>();
+    }
+}
