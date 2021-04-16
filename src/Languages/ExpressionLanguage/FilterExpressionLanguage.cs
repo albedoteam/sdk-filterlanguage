@@ -283,8 +283,12 @@
                     17,
                     ConvertEnumsIfRequired((left, right) =>
                     {
-                        return Expression.Call(
+                        var param0Exp = Expression.Call(
                             left,
+                            Type<string>.Method(x => x.ToLower()));
+
+                        return Expression.Call(
+                            param0Exp,
                             Type<string>.Method(x => x.Contains(null)),
                             right);
                     })),

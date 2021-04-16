@@ -29,7 +29,8 @@
 
                         return Expression.Call(
                             param0Exp,
-                            StringMembers.StartsWith, parameters[1]);
+                            StringMembers.StartsWith,
+                            parameters[1]);
                     }),
 
                 new FunctionCallDefinition(
@@ -44,7 +45,8 @@
 
                         return Expression.Call(
                             param0Exp,
-                            StringMembers.EndsWith, parameters[1]);
+                            StringMembers.EndsWith,
+                            parameters[1]);
                     }),
 
                 new FunctionCallDefinition(
@@ -53,7 +55,8 @@
                     new[] {typeof(string), typeof(string)},
                     parameters => Expression.Call(
                         parameters[1],
-                        StringMembers.Contains, parameters[0])),
+                        StringMembers.Contains,
+                        parameters[0])),
 
                 new FunctionCallDefinition(
                     "FN_CONTAINS",
