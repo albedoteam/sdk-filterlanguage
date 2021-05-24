@@ -8,6 +8,7 @@
     using Core.Utility;
     using Definitions;
     using Enumerators;
+    using MongoDB.Bson;
 
     public class FilterExpressionLanguage
     {
@@ -46,6 +47,11 @@
                     "GUID",
                     @"guid'[0-9A-Fa-f]{8}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{4}\-[0-9A-Fa-f]{12}'",
                     x => Expression.Constant(Guid.Parse(x.Substring("guid".Length).Trim('\'')))),
+
+                new OperandDefinition(
+                    "OBJECTID",
+                    @"objid'[a-f\d]{24}'",
+                    x => Expression.Constant(new ObjectId(x.Substring("objid".Length).Trim('\'')))),
 
                 new OperandDefinition(
                     "STRING",
